@@ -1,0 +1,75 @@
+﻿@model Support.WebApi.Models.GetBranchProductViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section BranchProductDetails{
+
+    <div class="row border-bottom" style="padding-top: 8px">
+        <div class="col-md-3">
+            <div class="input mb-3">
+                <input type="text" class="form-control" placeholder="Cari Kodu" id="txtCurrentCode" name="currentCode">
+            </div>
+        </div>
+        <div class="col-md-2">
+            <input class="form-control btn btn-outline-primary" type="submit" id="button-listele" value="Getir" />
+        </div>
+    </div>
+
+}
+    <div class="table-responsive">
+        <table class="table table-striped table-sm">
+            <thead>
+                <tr>
+                    <th scope="col">
+                        @Html.DisplayNameFor(model => model.PKBranchId)
+                    </th>
+                    <th scope="col">
+                        @Html.DisplayNameFor(model => model.BranchName)
+                    </th>
+                    <th scope="col">
+                        @Html.DisplayNameFor(model => model.CurrentCode)
+                    </th>
+                    <th scope="col">
+                        @Html.DisplayNameFor(model => model.PKProductId)
+                    </th>
+                    <th scope="col">
+                        @Html.DisplayNameFor(model => model.ProductCode)
+                    </th>
+                    <th scope="col">
+                        @Html.DisplayNameFor(model => model.ProductName)
+                    </th>
+                    <th scope="col">
+                        @Html.DisplayNameFor(model => model.PKProductVariantId)
+                    </th>
+                    <th scope="col">
+                        @Html.DisplayNameFor(model => model.ProductVariantCode)
+                    </th>
+                    <th scope="col">
+                        @Html.DisplayNameFor(model => model.CategoryId)
+                    </th>
+                    <th scope="col">
+                        @Html.DisplayNameFor(model => model.CategoryName)
+                    </th>
+                </tr>
+            </thead>
+        </table>
+    </div>
+
+    <script>
+        function getList() {
+            var a = document.getElementById("txtCurrentCode").value;
+            console.log(a);
+            //window.location.href = "GetBranchProduct/" + a + "";
+            window.location.href = a + "";
+            //$.ajax({
+            //    type: "GET",
+            //    url: '~/api/BevBread/GetProduct?productCode="'document.getElementById("txtProductCode").value'"',
+            //    dataType: 'json',
+            //    success: function (response) {
+            //    },
+            //    error: function () {
+            //    }
+            //});
+        }
+
+    </script>

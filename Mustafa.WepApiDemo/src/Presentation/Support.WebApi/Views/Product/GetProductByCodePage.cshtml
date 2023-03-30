@@ -1,0 +1,91 @@
+﻿@model Support.WebApi.Models.GetProductViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@section ProductDetails{
+
+    <div class="row border-bottom" style="padding-top: 8px">
+        <div class="col-md-3">
+            <div class="input mb-3">
+                <input type="text" class="form-control" placeholder="Ürün Kodu" id="txtProductCode" name="productCode">
+            </div>
+        </div>
+        <div class="col-md-2">
+            <input class="btn btn-outline-primary" type="button" value="Getir" onclick="location.href='@Url.Action("GetProductByCode", "Product")'" />
+            @*<button id="myBtn" class="btn btn-outline-primary" type="button" value="Getir" onclick="location.href='@Url.Action("GetProductByCode", "Product",new {productCode = "myFunction()"})'">Getir </button>*@
+            @*<button class="btn btn-outline-primary" type="submit" id="button-listele" onclick="@(Url.Action("GetProductByCode","Product",new{
+        productCode="log"}))">
+        Getir
+        </button>*@
+        </div>
+    </div>
+}
+    <div class="table-responsive">
+        <table class="table table-striped table-sm">
+            <thead>
+                <tr>
+                    <th scope="col">
+                        @Html.DisplayNameFor(model => model.Id)
+                    </th>
+                    <th scope="col">
+                        @Html.DisplayNameFor(model => model.CategoryId)
+                    </th>
+                    <th scope="col">
+                        @Html.DisplayNameFor(model => model.CreatedOn)
+                    </th>
+                    <th scope="col">
+                        @Html.DisplayNameFor(model => model.Code)
+                    </th>
+                    <th scope="col">
+                        @Html.DisplayNameFor(model => model.Name)
+                    </th>
+                </tr>
+            </thead>
+            @*<tbody>
+        @if(Model.Count()>0)
+        @foreach (var item in Model)
+        {
+        <tr>
+        <td>
+        @Html.DisplayFor(modelItem => item.Id)
+        </td>
+        <td>
+        @Html.DisplayFor(modelItem => item.CategoryId)
+        </td>
+        <td>
+        @Html.DisplayFor(modelItem => item.CreatedOn)
+        </td>
+        <td>
+        @Html.DisplayFor(modelItem => item.Code)
+        </td>
+        <td>
+        @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        </tr>
+        }
+        </tbody>*@
+        </table>
+    </div>
+
+   <script>
+        function myFunction() {
+            var x = document.getElementById("txtProductCode").value;
+            alert("Aratılan ürün Kodu: " + x);
+        }
+
+        function getCode() {
+            var a = document.getElementById("txtCurrentCode").value;
+            console.log(a);
+            //window.location.href = "GetBranchProduct/" + a + "";
+            //window.location.href = a + "";
+            //$.ajax({
+            //    type: "GET",
+            //    url: '~/api/BevBread/GetProduct?productCode="'document.getElementById("txtProductCode").value'"',
+            //    dataType: 'json',
+            //    success: function (response) {
+            //    },
+            //    error: function () {
+            //    }
+            //});
+        }
+    </script>
